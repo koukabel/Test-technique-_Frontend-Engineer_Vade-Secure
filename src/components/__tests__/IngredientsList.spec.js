@@ -1,30 +1,23 @@
-// import { shallowMount } from '@vue/test-utils'
-// import IngredientsList from '../IngredientsList.vue'
+import { shallowMount } from '@vue/test-utils';
+import IngredientsList from '../IngredientsList.vue';
 
-// describe("IngredientsList", () => {
-//   it("restitue un message de bienvenue", () => {
-//     const wrapper = factory();
+describe('IngredientsList', () => {
+  it('closes the modal when the close button is clicked', async () => {
+    // Mount the component
+    const wrapper = shallowMount(IngredientsList, {
+      propsData: {
+        cocktailIngredients: [],
+        modalOpened: true,
+      },
+    });
 
-//     expect(wrapper.find(".message").text()).toEqual(
-//       "Bienvenue sur le tutoriel Vue.js"
-//     );
-//   });
+    // Find the close button
+    const closeButton = wrapper.find('span');
 
-//   it("restitue une erreur quand `username` a moins de 7 caractères", () => {
-//     const wrapper = factory({ username: "" });
+    // Simulate a click event on the close button
+    await closeButton.trigger('click');
 
-//     expect(wrapper.find(".error").exists()).toBeTruthy();
-//   });
-
-//   it("restitue une erreur quand `username` contient des espaces", () => {
-//     const wrapper = factory({ username: " ".repeat(7) });
-
-//     expect(wrapper.find(".error").exists()).toBeTruthy();
-//   });
-
-//   it("ne restitue pas d'erreur quand `username` a 7 caractères ou plus", () => {
-//     const wrapper = factory({ username: "Lachlan" });
-
-//     expect(wrapper.find(".error").exists()).toBeFalsy();
-//   });
-// });
+    // Verify that the modal is closed
+    expect(wrapper.emitted('closeModal')).toBeTruthy();
+  });
+});
