@@ -22,7 +22,8 @@
     "autoprefixer": "^10.4.14",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
-    "jest": "^29.5.0",
+    "jest": "^24.0.0",
+    "vue-jest": "^5.0.0-alpha.8",
     "postcss": "^8.4.24",
     "tailwindcss": "^3.3.2"
   },
