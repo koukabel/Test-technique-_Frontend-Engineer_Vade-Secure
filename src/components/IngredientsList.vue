@@ -2,19 +2,22 @@
   <Transition name="outerModal">
     <div
       v-show="modalOpened"
-      class=" bg-gray-900 absolute w-full bg-opacity-30 h-screen top-1 left-0 flex justify-center px-4 overflow-hidden"
+      class="bg-gray-200 absolute w-full bg-opacity-30 h-screen top-1 left-0 flex justify-center px-4 overflow-hidden"
     >
       <Transition name="innerModal">
         <div
           v-if="modalOpened"
-                class="p-4 bg-gray-200 self-start m-32 "
+          class="p-4 bg-gray-300 self-start m-32 absolute"
         >
-         <div class="flex items-center justify-between mb-4">
-          <h2 class="text-lg font-bold mb-4">Ingredients</h2>
-          <span @click="closeModal" class=" px-4 cursor-pointer">❌</span>
+          <div class="flex items-baseline mb-4">
+            <h2 class="text-lg font-bold mb-4">Ingredients</h2>
+            <span @click="closeModal" class="px-4 cursor-pointer">❌</span>
           </div>
           <ul>
-            <li v-for="ingredient in cocktailIngredients" :key="ingredient.ingredient">
+            <li
+              v-for="ingredient in cocktailIngredients"
+              :key="ingredient.ingredient"
+            >
               <span class="font-semibold">{{ ingredient.ingredient }}</span>
               {{ ingredient.measure }}
             </li>

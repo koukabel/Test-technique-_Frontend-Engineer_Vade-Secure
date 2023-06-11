@@ -58,7 +58,6 @@
 
 <script>
 import IngredientsList from "./IngredientsList.vue";
-
 export default {
   name: "CocktailsApp",
   components: {
@@ -68,16 +67,17 @@ export default {
     return {
       cocktails: [],
       modalStates: {},
-      // modalOpened: ref(false),
     };
   },
 
   methods: {
     async fetchCocktails() {
       try {
+        //the Api sends one object at a time (one cocktail). Since we need to display 3 cocktails, we initialise an array 'requests' that contains 3 fetch requests 
         const requests = Array.from({ length: 3 }, () =>
           fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
         );
+        //once the array requests contains 3 objects, the method promise.all excecutes all the fetch requests at once
         const responses = await Promise.all(requests);
         const data = await Promise.all(responses.map((res) => res.json()));
         this.cocktails = data.map((item) => ({

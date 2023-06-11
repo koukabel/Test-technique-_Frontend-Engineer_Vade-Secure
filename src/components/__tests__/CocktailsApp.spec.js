@@ -21,4 +21,15 @@ describe('CocktailsApp', () => {
     // Verify that the cocktails array has a length of 3
     expect(wrapper.vm.cocktails).toHaveLength(3);
   });
+  
+  it('renders cocktails with image, instructions, and drink name', () => {
+    const wrapper = shallowMount(CocktailsApp);
+    const cocktails = wrapper.vm.cocktails;
+
+    cocktails.forEach(cocktail => {
+      expect(cocktail.strDrinkThumb).toBeTruthy();
+      expect(cocktail.strInstructions).toBeTruthy();
+      expect(cocktail.strDrink).toBeTruthy();
+    });
+  });
 });

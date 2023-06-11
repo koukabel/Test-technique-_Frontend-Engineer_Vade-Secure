@@ -3,7 +3,7 @@ import IngredientsList from '../IngredientsList.vue';
 
 describe('IngredientsList', () => {
   it('closes the modal when the close button is clicked', async () => {
-    // Mount the component
+
     const wrapper = shallowMount(IngredientsList, {
       propsData: {
         cocktailIngredients: [],
