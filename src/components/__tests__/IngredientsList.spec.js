@@ -1,9 +1,8 @@
-import { shallowMount } from '@vue/test-utils';
-import IngredientsList from '../IngredientsList.vue';
+import { shallowMount } from "@vue/test-utils";
+import IngredientsList from "../IngredientsList.vue";
 
-describe('IngredientsList', () => {
-  it('closes the modal when the close button is clicked', async () => {
-
+describe("IngredientsList", () => {
+  it("closes the modal when the close button is clicked", async () => {
     const wrapper = shallowMount(IngredientsList, {
       propsData: {
         cocktailIngredients: [],
@@ -12,12 +11,10 @@ describe('IngredientsList', () => {
     });
 
     // Find the close button
-    const closeButton = wrapper.find('span');
-
-    // Simulate a click event on the close button
-    await closeButton.trigger('click');
-
+    const closeButton = wrapper.find("span");
+    // Simulate a click event
+    await closeButton.trigger("click");
     // Verify that the modal is closed
-    expect(wrapper.emitted('closeModal')).toBeTruthy();
+    expect(wrapper.emitted("closeModal")).toBeTruthy();
   });
 });
