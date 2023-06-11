@@ -7,7 +7,7 @@
       <Transition name="innerModal">
         <div
           v-if="modalOpened"
-          class="p-4 bg-gray-300 self-start m-32 absolute"
+          class="p-4 bg-gray-200 self-start m-32 absolute"
         >
           <div class="flex items-baseline mb-4">
             <h2 class="text-lg font-bold mb-4">Ingredients</h2>
